@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../product';
 import { QuillingService } from '../quilling.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-product-detail',
@@ -12,9 +13,11 @@ export class ProductDetailComponent implements OnInit {
   filtered!: Product;
   service: QuillingService;
 
-  constructor(service: QuillingService, private route: ActivatedRoute) {
+  constructor(service: QuillingService, private route: ActivatedRoute, private router: Router) {
     this.service = service;
   }
+
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap) => {
@@ -25,6 +28,7 @@ export class ProductDetailComponent implements OnInit {
 
   addProduct = () => {
     this.service.addProduct(this.filtered);
+    console.log(this.service.shoppingCart.products);
   }
 
   removeProduct = () => {
@@ -33,6 +37,7 @@ export class ProductDetailComponent implements OnInit {
 
   update = () => {
     this.service.addProduct(this.filtered);
+    this.router.navigate(['cart']);
   }
 
 }

@@ -9,10 +9,13 @@ import { QuillingService } from '../quilling.service';
 })
 export class CartFeatureProductComponent implements OnInit {
   data: Product[] = [];
+  service: QuillingService;
 
   constructor(service: QuillingService) {
     // const arr = service.products.filter((item as Product, index as Number) => index < 6);
     this.data = service.shuffleArray(service.products);
+    this.service = service;
+    console.log(this.data);
   }
 
   ngOnInit(): void {

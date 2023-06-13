@@ -1,0 +1,143 @@
+<div class="bg-secondary border-top p-4 text-white mb-3">
+    <div class="display-4">Checkout</div>
+  </div>
+  <div class="container mb-3">
+    <div class="row">
+      <div class="col-md-8">
+      
+        <div class="card mb-3 border-info">
+          <div class="card-header bg-info">
+            Payment Method
+          </div>
+          <div class="card-body">
+            <div class="row g-3 mb-3 border-bottom">
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    className="form-check-input"
+                    defaultChecked
+                    required
+                  />
+                  <label class="form-check-label" htmlFor="credit">
+                    Credit card
+                    <img
+                      src="../assets/images/payment/cards.webp"
+                      alt="..."
+                      className="ml-3"
+                      height={26}
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" htmlFor="paypal">
+                    PayPal
+                    <img
+                      src="../assets/images/payment/paypal_64.webp"
+                      alt="..."
+                      class="ml-3"
+                      height={26}
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name on card"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Card number"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Expiration month"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Expiration year"
+                />
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="CVV"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card-footer border-info">
+            <button type="button" class="btn btn-block btn-info">
+                Pay Now <strong>${{service.getTotalCost().toFixed(2)}}</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <div>Cart 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+            </div>
+            
+            <span class="badge bg-secondary">{{service.total}}</span>
+          </div>
+          <ul class="list-group list-group-flush">
+            
+                <li *ngFor="let wrapper of service.shoppingCart.products.values()" class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">{{wrapper.product.name}}</h6>
+                        <small class="text-muted">{{wrapper.product.name}}</small>
+                  </div>
+                <span class="text-muted">${{wrapper.product.price}}</span>
+                </li>
+              
+
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Promo code</h6>
+                <small></small>
+              </div>
+              <span class="text-success">−$0.00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>${{service.getTotalCost().toFixed(2)}}</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+

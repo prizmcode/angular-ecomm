@@ -7,47 +7,56 @@
 
                 </div>
                 <div class="col-md-6 mt-4 mr-6">
-                    <h1 class="h5 d-inline mr-2" class="s">{{filtered.image}}</h1>
-
+                    <h1 class="h3 d-inline mr-2" class="s">{{filtered.name}}</h1>
 
                     <div class="m-4 ml-5 ">
-                        <span class="font-weight-bold h2 mr-2" class="s">${{filtered.image}}</span>
+                        <span class="font-weight-bold mr-2 display-4">${{filtered.price}}</span>
                     </div>
 
-
                     <div class="mb-3">
-                        <div class="d-inline float-left mr-2">
-                            <div class="input-group input-group-sm mw-140">
-                                <button class="btn btn-primary text-white" type="button"
-                                    (click)="removeProduct()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                      </svg>
+                        <div class="float-left mr-2">
+                            <div class="d-flex input-group input-group-sm mw-140">
+                                <div class="mx-2">
+                                    <button class="btn btn-primary text-white" type="button" (click)="removeProduct()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                        </svg>
+                                    </button>
+
+                                    <input id="prod-qty" class="btn btn-primary d-inline w-10 bg-white text-black"
+                                        type="text"
+                                        value="{{service.shoppingCart.products.get(filtered._id)?.count}}" />
+
+                                    <button class="btn btn-primary text-white" type="button" (click)="addProduct()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                        </svg>
+                                    </button>
+
+                                </div>
+
+                                <button type="button" class="btn btn-sm btn-primary px-4" title="Add to cart"
+                                    style="border-bottom: 2px solid black" (click)="addProduct()">
+                                    Add to cart
+
                                 </button>
-                                <input type="text" class="form-control" defaultValue="1" />
-                                <button class="btn btn-primary text-white" type="button"
-                                    (click)="addProduct()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                      </svg>
+                                <button type="button" class="btn btn-sm btn-warning mx-2 px-4" title="Buy now"
+                                    style="border-bottom: 2px solid black" (click)="update()">
+                                    Buy now
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary p-2"
+                                    title="Add to wishlist">
+                                    +
+
                                 </button>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-sm btn-primary mr-2" title="Add to cart"
-                            style="borderBottom: 2px solid black"
-                            (click)="addProduct()">
-                            Add to cart
-             
-                        </button>
-                        <button type="button" class="btn btn-sm btn-warning mr-2" title="Buy now" style=""
-                            (click)="update()">
-                            Buy now
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" title="Add to wishlist">
-                            +
-                        
-                        </button>
+
                     </div>
                     <div>
                         <p class="font-weight-bolder mb-2 small">
@@ -127,7 +136,6 @@
         </div>
         <div class="col-md-4">
             <app-cart-feature-product></app-cart-feature-product>
-            <app-card-services></app-card-services>
         </div>
     </div>
 </div>

@@ -13,13 +13,14 @@ export class ProductListComponent implements OnInit {
   products:Product[] = [];
   constructor(public service: QuillingService, private route: ActivatedRoute) {
     this.service = service;
+    
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap) => {
       const cat = paramMap.get('cat');
       if (cat != undefined) {
-        //Your code is here
+        this.service.filteredProducts = this.service.products.filter((product:Product) => product.category === cat);
       }
     });
   }

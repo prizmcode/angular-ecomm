@@ -24,6 +24,7 @@ import { CartFeatureProductComponent } from './cart-feature-product/cart-feature
 import { CardServicesComponent } from './card-services/card-services.component';
 import { QuestionAnswerComponent } from './question-answer/question-answer.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
     CartFeatureProductComponent,
     CardServicesComponent,
     QuestionAnswerComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

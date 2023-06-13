@@ -1,5 +1,5 @@
 <div class="bg-secondary border-top p-4 text-white mb-3">
-    <h1 class="display-6">Shopping Cart</h1>
+    <div class="display-4">Shopping Cart</div>
 </div>
 <div class="container mb-3">
     <div class="row">
@@ -7,7 +7,7 @@
 
             <div class="card">
                 <div class="table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless p-3">
                         <thead class="text-muted">
                             <tr class="small text-uppercase">
                                 <th scope="col">Product</th>
@@ -28,7 +28,7 @@
                                             <img src="assets/{{wrapper.product.image}}" width="80" alt="..." />
                                         </div>
                                         <div class="col">
-                                            <a routerLink="/product/detail" class="text-decoration-none">
+                                            <a routerLink="/detail/{{wrapper.product._id}}" class="h5 d-block my-2 text-decoration-none">
                                                 {{wrapper.product.name}}
                                             </a>
                                             <p class="small text-muted">
@@ -49,7 +49,7 @@
                                                     d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
                                             </svg>
                                         </button>
-                                        <input type="text" class="form-control" defaultValue={wrapper.count} />
+                                        <input type="text" class="form-control" defaultValue={{wrapper.count}} />
                                         <button class="btn btn-primary text-white" type="button"
                                             (click)="service.addProduct(wrapper.product)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -91,7 +91,15 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer d-flex justify-content-between">
+                    <a routerLink="/" class="btn btn-secondary mx-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                        </svg> Continue shopping
+                    </a>
+
                     <a routerLink="/checkout" class="btn btn-primary float-right">
                         Make Purchase
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -99,13 +107,6 @@
                             <path fill-rule="evenodd"
                                 d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                         </svg>
-                    </a>
-                    <a routerLink="/" class="btn btn-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-chevron-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                        </svg> Continue shopping
                     </a>
                 </div>
             </div>
@@ -121,11 +122,6 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card mb-3">
-                <div class="card-body">
-
-                </div>
-            </div>
             <div class="card">
                 <div class="card-body">
                     <dl class="row border-bottom">
@@ -148,7 +144,7 @@
                     </dl>
                     <hr />
                     <p class="text-center">
-                        <img src="assets/images/payment/payments.webp" alt="..." height={26} />
+                        <img src="assets/images/payment/payments.webp" alt="..." height={20} />
                     </p>
                 </div>
             </div>

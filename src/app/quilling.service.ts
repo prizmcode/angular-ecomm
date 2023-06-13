@@ -47,25 +47,30 @@ export class QuillingService {
    * @param product 
    */
   addProduct = (product: Product) => {
-    //Your code is here
-
+    this.shoppingCart.addProduct(product);
+    this.getNewCount();
   }
 
   removeProduct = (product: Product) => {
-    //Your code is here
+    this.shoppingCart.removeProduct(product._id);
+    this.getNewCount();
   }
 
   getNewCount = () => {
-    //Your code is here
+    const total = this.shoppingCart.products.size > 0
+    ? Array.from(this.shoppingCart.products.values()).map(product => product.count).reduce((prev, curr) => prev + curr)
+    : 0;
+   this.total = total;
   }
 
   removeAllProducts = (id: string) => {
-    //Your code is here
+    this.shoppingCart.removeAllProduct(id);
+    this.getNewCount();
   }
 
   getTotalCost = () => {
-    //Your code is here
-    //Make sure to replace the 0 with your actual code
-    return 0;
+    const products = Array.from(this.shoppingCart.products.values());
+    const totalCost = products.reduce((totalCost, product) => totalCost + (product.count * product.product.price), 0);
+  return totalCost;
   }
 }
